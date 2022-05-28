@@ -9,8 +9,11 @@ namespace structuralPattern
      interface IComponent
     {
         string name { get; set; }
-        public Tuple<double, double> printSchedule();
+        public Tuple<double, double> printSchedule(string indent, bool last);
+        public bool addAt(string Name, IComponent temp);
 
-        public void addAt(string Name, IComponent temp);
+        public void add(IComponent temp);
+
+        public void remove(IComponent temp);
     }
 }

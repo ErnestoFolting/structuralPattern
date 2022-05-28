@@ -18,13 +18,36 @@ namespace structuralPattern.Structure
             rate = Rate;
             salary = Salary;
         }
-        public Tuple<double,double> printSchedule()
+        public Tuple<double,double> printSchedule(string indent, bool last)
         {
-            Console.WriteLine("Position: {0}\nRate: {1}\nSalary: {2}\n", name, rate, salary);
-            return Tuple.Create(rate, salary);
+
+            Console.Write(indent);
+            if (last)
+            {
+                Console.Write("\\-");
+                indent += "  ";
+            }
+            else
+            {
+                Console.Write("|-");
+                indent += "| ";
+            }
+            Console.WriteLine("Position: {0} Rate: {1} Salary: {2}", name,rate,salary);
+            
+            return Tuple.Create(rate, rate * salary);
         }
-        public void addAt(string Name, IComponent temp)
+        public bool addAt(string Name, IComponent temp)
         {
+            return false;
+        }
+        public void add(IComponent temp)
+        {
+            Console.WriteLine("Can not add positions or units to position.");
+        }
+
+        public void remove(IComponent temp)
+        {
+            Console.WriteLine("Can not remove positions or units from position.");
         }
     }
 }
